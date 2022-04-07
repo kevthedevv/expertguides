@@ -6,24 +6,20 @@ import avatar from "../images/avatar.png"
 const Wrapper = styled.div`
     height: 100%;
     padding: 0 40px 0px 40px;
-  
-    
-    
 `
-
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
 `
-
 const PageTitle = styled.h1`
-    color: black;
+    color: #444444;
     font-size: 20px;
     font-weight: 100;
+    padding-bottom: 50px;
+    text-transform: uppercase;
 `
-
 const SearchContainer = styled.div`
     display: flex;
     align-items: center;
@@ -49,7 +45,7 @@ const SearchButton = styled.button`
     width: 100px;
     padding: 10px;
     height: 45px;
-    background-color: #046BF7;
+    background-color: #43AAE5;
     color: white;
     cursor: pointer;
     border: 0;
@@ -62,7 +58,7 @@ const AddButton = styled.button`
     width: 100px;
     padding: 10px;
     height: 45px;
-    background-color: #046BF7;
+    background-color: #43AAE5;
     color: white;
     cursor: pointer;
     border: 0;
@@ -71,6 +67,22 @@ const AddButton = styled.button`
         background-color: #64A5FF;
     }
 `
+
+const RowButtons = styled.button`
+    width: 100px;
+    padding: 10px;
+    height: 45px;
+    background-color: #43AAE5;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 10px;
+    &:hover{
+        background-color: #64A5FF;
+    }
+`
+
 //Container of search, add button.
 const InteractionContainer = styled.div`
     display: flex;
@@ -98,27 +110,32 @@ const Table = styled.table`
 `
 //Table Title Container
 const TableTitleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 30px;
     width: auto;
     padding: 20px;
     border-bottom: 1px solid #EBEBEB;
-    border: solid red 1px;
 `
 //Title which is "Subjects"
 const TableTitle = styled.h1`
     font-size: 20px;
     font-weight: 600;
+    color: #444444;
 `
 
 //All table row
 const TableRow = styled.tr`
     width: 100%;
-    border: solid red 1px;
+`
+
+const TableDesc = styled.td`
+    width: 100%;
 `
 
 const TableHeader = styled.th`
-    width: 500px;
-    border: solid red 1px;
+    width: 100%;
 `
 const TableHeaderContainer = styled.div`
     display: flex;
@@ -129,16 +146,22 @@ const TableHeaderContainer = styled.div`
     border-bottom: 1px solid #EBEBEB;
     padding: 20px 0 20px 15px;
     overflow: hidden;
-    border: solid red 1px;
 `
 const TableHeaderTitle = styled.p`
-   
+   color: #444444;
+`
+
+const RowButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 20px;
 `
 
 const Diagnostic = () => {
   return (
     <Wrapper>
-        <PageTitle>Diagnostic</PageTitle>
+        <PageTitle>Diagnostic Test</PageTitle>
         <Container>
             <InteractionContainer>
                 <SearchContainer>
@@ -147,24 +170,31 @@ const Diagnostic = () => {
                     </InputContainer>
                     <SearchButton>Search</SearchButton>
                 </SearchContainer>
-                <AddButton>Add New</AddButton>
+               
             </InteractionContainer>
             <TableContainer>
-            <TableTitleContainer><TableTitle>Subjects</TableTitle></TableTitleContainer>
+            <TableTitleContainer><TableTitle>Subjects</TableTitle> <AddButton>Add New</AddButton> </TableTitleContainer>
                 <Table>
                     <TableRow>
                         <TableHeaderContainer>
                         <TableHeader><TableHeaderTitle>Subject Name</TableHeaderTitle></TableHeader>
                         <TableHeader><TableHeaderTitle>Questions Saved</TableHeaderTitle></TableHeader>
-                        <TableHeader><TableHeaderTitle>Action</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle>Time Limit</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle></TableHeaderTitle></TableHeader>
                         </TableHeaderContainer>
                     </TableRow>
                     <TableRow>
                         <TableHeaderContainer>
-                        <TableRow><TableHeaderTitle>Mathematics Proficiency</TableHeaderTitle></TableRow>
-                        <TableRow><TableHeaderTitle>53</TableHeaderTitle></TableRow>
-                        <TableRow><AddButton>Edit</AddButton></TableRow>
-                        <TableRow><AddButton>Edit</AddButton></TableRow>
+                        <TableDesc><TableHeaderTitle>Mathematics Proficiency</TableHeaderTitle></TableDesc>
+                        <TableDesc><TableHeaderTitle>53</TableHeaderTitle></TableDesc>
+                        <TableDesc><TableHeaderTitle>75M</TableHeaderTitle></TableDesc>
+                        
+                        <TableDesc>
+                            <RowButtonsContainer>
+                                <RowButtons>Edit</RowButtons>
+                                <RowButtons>View</RowButtons>
+                            </RowButtonsContainer>    
+                        </TableDesc>
                         </TableHeaderContainer>
                     </TableRow>
                 </Table>

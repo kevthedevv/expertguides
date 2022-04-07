@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import Main from '../pages/Main'
+import Menu from '../components/Menu'
 import Header from '../components/Header'
 import DiagnosticComponent from '../components/Diagnostic'
 
@@ -15,17 +15,22 @@ const Container = styled.div`
 const HeaderArea = styled.div`
     
 `
+const MenuArea = styled.div`
+    z-index: 1;
+`
 const MainArea = styled.div`
-    padding-top: 100px;
+    padding-top: 30px;
     grid-area: main;
     height: 100%;
+  
 `
-
 
 const Diagnostic = () => {
   return (
 <Wrapper>
-    <Main />
+    <MenuArea>
+        <Menu />
+    </MenuArea>
     <Container>
         <HeaderArea>
         <Header/>
@@ -34,8 +39,6 @@ const Diagnostic = () => {
            <DiagnosticComponent/>
         </MainArea>
     </Container>
- 
-    
 </Wrapper>
                
           

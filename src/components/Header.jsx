@@ -22,18 +22,20 @@ const Label = styled.h1`
     font-size: 20px;
     padding-right: 20px;
     font-weight: 100;
-    padding-left: 50px;
+    padding-left: 40px;
+    color: #444444;
 `
 const User = styled.h1`
     font-size: 20px;
     padding-right: 20px;
     font-weight: 100;
+    color: #444444;
 `
 const UserContainer = styled.div`
     display: flex;    
     justify-content: center;
     align-items: center;
-    padding-right: 50px;
+    padding-right: 40px;
 `
 const Header = () => {
   return (
