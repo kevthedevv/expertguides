@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import Menu from '../components/Menu'
 import Header from '../components/Header'
-import DiagnosticComponent from '../components/Diagnostic'
+import AddSubjectComponent from '../components/AddSubject'
 
 const Wrapper = styled.div`
     display: flex;
@@ -25,7 +25,7 @@ const MainArea = styled.div`
   
 `
 
-const Diagnostic = () => {
+const AddSubject = () => {
   return (
     <Wrapper>
         <MenuArea>
@@ -36,11 +36,11 @@ const Diagnostic = () => {
             <Header/>
             </HeaderArea>
             <MainArea>
-            <DiagnosticComponent/>
+                <AddSubjectComponent/>
             </MainArea>
         </Container>
     </Wrapper>
     )
 }
 
-export default Diagnostic
+export default AddSubject

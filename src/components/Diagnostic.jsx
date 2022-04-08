@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
 import {  } from '@material-ui/icons'
-import avatar from "../images/avatar.png"
 
 const Wrapper = styled.div`
     height: 100%;
@@ -24,14 +23,12 @@ const SearchContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-  
 `
 const Search = styled.input`
     border: 0;
     background-color: transparent;
     outline: none;
     font-size: 1rem;
-    padding-left: 10px;
     width: 300px;
 `
 const InputContainer = styled.div`
