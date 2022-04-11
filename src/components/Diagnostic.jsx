@@ -1,6 +1,7 @@
-import React from 'react'
+import { useState} from 'react'
 import styled from "styled-components"
 import {  } from '@material-ui/icons'
+
 
 const Wrapper = styled.div`
     height: 100%;
@@ -156,7 +157,10 @@ const RowButtonsContainer = styled.div`
 `
 
 const Diagnostic = () => {
+
+  
   return (
+
     <Wrapper>
         <PageTitle>Diagnostic Test</PageTitle>
         <Container>
@@ -198,7 +202,10 @@ const Diagnostic = () => {
             </TableContainer>
          
         </Container>
+       
     </Wrapper>
+    
+
    
   )
 }

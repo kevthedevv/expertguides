@@ -1,31 +1,23 @@
-import React from 'react'
-import styled from "styled-components"
+import React, { useState } from 'react';
 import {  } from '@material-ui/icons'
-import image from "../images/add_edit.jpg"
 import Modal from 'react-bootstrap/Modal'
+import styled from "styled-components"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 const Wrapper = styled.div`
     padding: 0 40px 0px 40px;
 `
 const Container = styled.div`
-    margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 `
-const Image = styled.img`
-    height: 400px;
-`
-const PageTitle = styled.h1`
-    color: #444444;
-    font-size: 20px;
-    font-weight: 100;
-    padding-bottom: 50px;
-    text-transform: uppercase;
-`
+
 const FormContainer = styled.div`
     width: 320px;
-    height: 400px;
+    height: auto;
 `
 const Input = styled.input`
     border: 0;
@@ -69,28 +61,46 @@ const ButtonContainer = styled.div`
     justify-content: right;
     margin-top: 50px;
 `
-const AddSubject = (props) => {
+
+const AddEditModal = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   return (
-        <Wrapper>
-            <PageTitle>DIAGNOSTIC > ADD SUBJECT</PageTitle>
+      <>
+       <Button onClick={handleShow}>
+       ADD 
+      </Button>
+
+      <Modal show={show} onHide={handleClose} centered>
+     <Modal.Header closeButton>
+       <Modal.Title>Add Subject</Modal.Title>
+     </Modal.Header>
+     <Modal.Body>
+      
+     <Wrapper>
             <Container>
-                <Image src = {image}/>
                 <FormContainer>
-                       
                         <InputContainer><Input placeholder="Subject name"/></InputContainer>
                         <InputContainer><Input placeholder="Time limit"/></InputContainer>
                         <Checkbox type="checkbox"/><CheckboxLabel>Is it active?</CheckboxLabel>
-                        <ButtonContainer>
-                            <Button>Cancel</Button>
-                            <Button>Add</Button>
-                        </ButtonContainer>
-                       
                 </FormContainer>
             </Container>
         </Wrapper>
-     
-       
+     </Modal.Body>
+     <Modal.Footer>
+       <Button onClick={handleClose}>
+         Close
+       </Button>
+       <Button variant="primary" onClick={handleClose}>
+         Add 
+       </Button>
+     </Modal.Footer>
+   </Modal>
+      </>
+    
   )
 }
 
-export default AddSubject
+export default AddEditModal
