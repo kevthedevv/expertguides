@@ -1,8 +1,9 @@
 import { useState} from 'react'
 import styled from "styled-components"
-import {  } from '@material-ui/icons'
+import { ArrowDropDownOutlined, ArrowDropUpOutlined } from '@material-ui/icons'
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ButtonBlue } from './Styles';
 
 
 
@@ -10,14 +11,11 @@ const ModalWrapper = styled.div`
     padding: 0 40px 0px 40px;
 `
 const ModalContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
 `
-
 const ModalFormContainer = styled.div`
-    width: 320px;
-    height: auto;
+    width: auto;
+    height: 600px;
 `
 const ModalInput = styled.input`
     border: 0;
@@ -212,8 +210,93 @@ const RowButtonsContainer = styled.div`
     justify-content: right;
     padding-right: 10px;
 `
+const OrderButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: left;
+`
+const OrderButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    padding: 10px;
+    height: 35px;
+    background-color: #43AAE5;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 20px;
+    &:hover{
+        background-color: #64A5FF;
+    }
+    
+`
 
-const Diagnostic = () => {
+const DivCentered = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+const DivLeft = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
+`
+const DivRight = styled.div`
+    display: flex;
+    justify-content: right;
+    align-items: center;
+`
+const DivSpaceBetween = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+const DivSpaceAround = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+const ModalQuestionDirection = styled.input`
+    margin-right: 20px;
+`
+const ModalLabel = styled.p`
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    margin-right: 10px;
+
+`
+const ModalInputQuestion = styled.textarea`
+    width: 100%;
+    &textarea:focus{
+        outline: none;
+    }
+`
+const ModalH1 = styled.h1`
+    font-size: 20px;
+    font-weight: 100;
+    color: #444444;
+    margin: 0;
+    margin-right: 30px;
+`
+const ModalAnswerInput = styled.input`
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+`
+const ModalAnswerInputContainer = styled.div`
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #bbbbbb;
+    margin: 20px 0  20px 0;
+`
+const Questions = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -221,7 +304,7 @@ const Diagnostic = () => {
   return (
 
     <Wrapper>
-        <PageTitle>Diagnostic Test</PageTitle>
+        <PageTitle>Items</PageTitle>
         <Container>
             <InteractionContainer>
                 <SearchContainer>
@@ -233,26 +316,26 @@ const Diagnostic = () => {
                
             </InteractionContainer>
             <TableContainer>
-            <TableTitleContainer><TableTitle>Subjects</TableTitle> <AddButton onClick={handleShow}>Add New</AddButton> </TableTitleContainer>
+            <TableTitleContainer><TableTitle>Questions / Directions</TableTitle> <AddButton onClick={handleShow}>Add New</AddButton> </TableTitleContainer>
                 <Table>
                     <TableRow>
                         <TableHeaderContainer>
-                        <TableHeader><TableHeaderTitle>Subject Name</TableHeaderTitle></TableHeader>
-                        <TableHeader><TableHeaderTitle>Questions Saved</TableHeaderTitle></TableHeader>
-                        <TableHeader><TableHeaderTitle>Time Limit</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle>Index</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle>Items</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle>Details</TableHeaderTitle></TableHeader>
+                        <TableHeader><TableHeaderTitle>Order</TableHeaderTitle></TableHeader>
                         <TableHeader><TableHeaderTitle></TableHeaderTitle></TableHeader>
                         </TableHeaderContainer>
                     </TableRow>
                     <TableRow>
                         <TableHeaderContainer>
-                        <TableDesc><TableHeaderTitle>Mathematics Proficiency</TableHeaderTitle></TableDesc>
-                        <TableDesc><TableHeaderTitle>53</TableHeaderTitle></TableDesc>
-                        <TableDesc><TableHeaderTitle>75M</TableHeaderTitle></TableDesc>
-                        
+                        <TableDesc><TableHeaderTitle>1</TableHeaderTitle></TableDesc>
+                        <TableDesc><TableHeaderTitle>INSTRUCTION</TableHeaderTitle></TableDesc>
+                        <TableDesc><TableHeaderTitle>Fill in the blanks</TableHeaderTitle></TableDesc>
+                        <TableDesc><TableHeaderTitle><OrderButtonsContainer><OrderButton><ArrowDropDownOutlined></ArrowDropDownOutlined></OrderButton><OrderButton><ArrowDropUpOutlined/></OrderButton></OrderButtonsContainer></TableHeaderTitle></TableDesc>
                         <TableDesc>
                             <RowButtonsContainer>
-                                <RowButtons onClick={handleShow}>Edit</RowButtons>
-                                <RowButtons>View</RowButtons>
+                                <RowButtons onClick={handleShow}>Modify</RowButtons>
                             </RowButtonsContainer>    
                         </TableDesc>
                         </TableHeaderContainer>
@@ -261,19 +344,47 @@ const Diagnostic = () => {
             </TableContainer>
          
         </Container>
-        <Modal show={show} onHide={handleClose} centered>
+        <Modal show={show} onHide={handleClose} centered size="xl">
             <Modal.Header closeButton>
-            <Modal.Title>Add Subject</Modal.Title>
+            <Modal.Title>Add Question or Direction</Modal.Title>
             </Modal.Header>
                 <Modal.Body>
                     <ModalWrapper>
                         <ModalContainer>
-                            <ModalFormContainer>
-                                    <ModalInputContainer><ModalInput placeholder="Subject name"/></ModalInputContainer>
-                                    <ModalInputContainer><ModalInput placeholder="Time limit"/></ModalInputContainer>
-                                    <ModalCheckbox type="checkbox"/><ModalCheckboxLabel>Is it active?</ModalCheckboxLabel>
-                            </ModalFormContainer>
+                            <DivSpaceBetween style={{marginBottom: "20px"}}>
+                                <DivCentered>
+                                    <DivCentered><ModalLabel>Question</ModalLabel> <ModalQuestionDirection type="radio" name="question"/></DivCentered>
+                                    <DivCentered><ModalLabel>Direction</ModalLabel> <ModalQuestionDirection type="radio" name="direction"/></DivCentered>
+                                </DivCentered>
+                                <DivCentered>
+                                    <DivCentered>
+                                        <ModalLabel>Upload image:</ModalLabel>
+                                        <ModalButton>Import</ModalButton>
+                                    </DivCentered>
+                                </DivCentered>
+                            </DivSpaceBetween>
+                            <ModalInputQuestion  type="textarea" rows="10" cols="30" style={{marginBottom: "20px"}}/>
+                            <ModalCheckbox type="checkbox"/><ModalCheckboxLabel>Multiple choice question?</ModalCheckboxLabel>
+                            <DivLeft style={{marginTop: "20px"}}>
+                                <ModalCheckboxLabel style={{paddingRight: "40px"}}>Answer 1</ModalCheckboxLabel>
+                                <ModalCheckbox type="checkbox"/><ModalCheckboxLabel>Correct Answer?</ModalCheckboxLabel>
+                            </DivLeft>
+                            <ModalAnswerInputContainer><ModalAnswerInput/></ModalAnswerInputContainer>
+                            <DivLeft>
+                                <ModalCheckboxLabel style={{paddingRight: "40px"}}>Answer 2</ModalCheckboxLabel>
+                                <ModalCheckbox type="checkbox"/><ModalCheckboxLabel>Correct Answer?</ModalCheckboxLabel>
+                            </DivLeft>
+                            <ModalAnswerInputContainer><ModalAnswerInput/></ModalAnswerInputContainer>
+                            <DivLeft>
+                                <ModalCheckboxLabel style={{paddingRight: "40px"}}>Answer 3</ModalCheckboxLabel>
+                                <ModalCheckbox type="checkbox"/><ModalCheckboxLabel>Correct Answer?</ModalCheckboxLabel>
+                            </DivLeft>
+                            <ModalAnswerInputContainer><ModalAnswerInput/></ModalAnswerInputContainer>
                         </ModalContainer>
+                        <DivLeft>
+                        <ModalButton>+</ModalButton>
+                        </DivLeft>
+                        
                     </ModalWrapper>
                 </Modal.Body>
             <Modal.Footer>
@@ -289,4 +400,4 @@ const Diagnostic = () => {
   )
 }
 
-export default Diagnostic
+export default Questions

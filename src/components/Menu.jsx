@@ -13,14 +13,15 @@ const Wrapper = styled.div`
     "menu main main main";
     overflow: hidden; */
     
+    
 `
 const Container = styled.div`
-    grid-area: menu;
     height: 100vh;
     width: 300px;
     background-color: #43AAE5;
     display: flex;
     flex-direction: column;
+    
 `
 
 const LogoContainer = styled.div`
@@ -31,8 +32,9 @@ const LogoContainer = styled.div`
     width: 300px;
     color: white;
     margin-left: -10px;
-    padding-top: 20px;
+    padding-top: 60px;
     padding-bottom: 100px;
+    
 
 `
 const Logo = styled.img`
@@ -53,6 +55,7 @@ const LogoLabelContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 `
 const MenuContainer = styled.div`
     width: 300px;
@@ -65,18 +68,20 @@ const Menus = styled.div`
 `
 const MenuItemsParent = styled.p`
     padding-left: 40px;
+    margin-bottom: 0;
     color: #444444;
 `
 const IconContainer = styled.div`
     padding-right: 10px;
-    padding-top: 5px;
+    
 `
 const MenuItems = styled.p`
     display: flex;
     align-items: center;
-    padding: 10px 0 ;
-    padding-left: 40px;
+    padding: 15px 0 15px 40px;
     font-size: 16px;
+   
+    margin: 0;
     &:hover{
         background-color: white;
         color: #43AAE5;

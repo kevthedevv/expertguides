@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import {  } from '@material-ui/icons'
 import image from "../images/add_edit.jpg"
-import Modal from 'react-bootstrap/Modal'
+
 
 const Wrapper = styled.div`
     padding: 0 40px 0px 40px;
